@@ -8,12 +8,23 @@ public class CameraController : MonoBehaviour {
 
     [SerializeField] float pitch;
     [SerializeField] float yaw;
+    [SerializeField] float viewUpDown;
+    Animator anim;
 
     private void Awake() {
         inputControl = GameManager.Instance.InputController;
+        anim = gameObject.GetComponent<Animator>();
+        viewUpDown = -1;
     }
 
     private void Update() {
-        yaw = inputControl.mouseInput.y;
+        
+        anim.SetFloat("direction", viewUpDown);
+        if (Input.GetKeyDown(KeyCode.A)) {
+            if(viewUpDown < 1) { viewUpDown = 1; } else { viewUpDown = -1; }
+            anim.Play("CameraToWell");
+            anim.playbackTime = viewUpDown;
+        }
+
     }
 }
