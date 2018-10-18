@@ -7,6 +7,7 @@ public class InputController : MonoBehaviour {
     public float vertical;
     public float horizontal;
     public float scrollZoom;
+    public bool leftMouse;
     public Vector2 mouseInput;
     public Vector2 inputDir;
 
@@ -14,6 +15,6 @@ public class InputController : MonoBehaviour {
         vertical = Input.GetAxisRaw("Vertical");
         horizontal = Input.GetAxisRaw("Horizontal");
         mouseInput = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
-        Debug.Log("Mouse Axis" + mouseInput);
+        leftMouse = Input.GetMouseButtonDown(0);
     }
 }
