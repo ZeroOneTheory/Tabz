@@ -9,6 +9,11 @@ public class CameraController : MonoBehaviour {
     [SerializeField] float pitch;
     [SerializeField] float yaw;
     [SerializeField] float viewUpDown;
+    [SerializeField] float camSpeed;
+
+
+    private float vertRequest;
+    private float currentVertical;
     Animator anim;
 
     private void Awake() {
@@ -17,14 +22,13 @@ public class CameraController : MonoBehaviour {
         viewUpDown = -1;
     }
 
-    private void Update() {
-        
-        anim.SetFloat("direction", viewUpDown);
-        if (Input.GetKeyDown(KeyCode.A)) {
-            if(viewUpDown < 1) { viewUpDown = 1; } else { viewUpDown = -1; }
-            anim.Play("CameraToWell");
-            anim.playbackTime = viewUpDown;
+    void Update() {
+
+        if (inputControl.vertical != 0) { vertRequest = inputControl.vertical; }
+        if (currentVertical != vertRequest) {
+            currentVertical = Mathf.SmoothStep(currentVertical, vertRequest, camSpeed * Time.deltaTime);
         }
+        anim.SetFloat("vertical", currentVertical);
 
     }
 }

@@ -16,7 +16,7 @@ public class GuestAnimator : MonoBehaviour {
             if (animNum == int.MaxValue) {
                 animNum = 0;
             } else { animNum += 1; }
-            
+           
         }
     }
 }
