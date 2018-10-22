@@ -18,5 +18,11 @@ public class InputController : MonoBehaviour {
         mouseInput = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
         leftMouse = Input.GetMouseButtonDown(0);
         tempKey = Input.GetKeyDown(KeyCode.Z);
+
+        if (Input.touchCount >= 1) {
+            foreach (Touch touch in Input.touches) {
+                
+            }
+        }
     }
 }
