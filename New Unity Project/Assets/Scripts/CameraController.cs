@@ -4,31 +4,31 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour {
 
+    public Transform[] barViews;
+    public float transitionSpeed;
+    public Transform currentView;
+    public int viewNumber = 0;
+
     InputController inputControl;
 
-    [SerializeField] float pitch;
-    [SerializeField] float yaw;
-    [SerializeField] float viewUpDown;
-    [SerializeField] float camSpeed;
 
-
-    private float vertRequest;
-    private float currentVertical;
-    Animator anim;
-
-    private void Awake() {
+    void Start() {
         inputControl = GameManager.Instance.InputController;
-        anim = gameObject.GetComponent<Animator>();
-        viewUpDown = -1;
     }
 
     void Update() {
-
-        if (inputControl.vertical != 0) { vertRequest = inputControl.vertical; }
-        if (currentVertical != vertRequest) {
-            currentVertical = Mathf.SmoothStep(currentVertical, vertRequest, camSpeed * Time.deltaTime);
+        if (inputControl.tempKey) {
+            if (viewNumber == barViews.Length-1) {
+                viewNumber = 0;
+            } else { viewNumber += 1; }
         }
-        anim.SetFloat("vertical", currentVertical);
+        currentView = barViews[viewNumber];
+    }
+
+    void LateUpdate() {
+        transform.position = Vector3.Lerp(transform.position, currentView.position, Time.deltaTime * transitionSpeed);
+        transform.rotation = Quaternion.Lerp(transform.rotation, currentView.rotation, Time.deltaTime * transitionSpeed);
 
     }
+
 }
