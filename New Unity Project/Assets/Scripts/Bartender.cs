@@ -16,18 +16,12 @@ public class Bartender : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        inputController = GameManager.Instance.InputController;
+        
 
     }
 	
 	// Update is called once per frame
 	void Update () {
-        Ray barRay = cam.ScreenPointToRay(Input.mousePosition);
-        RaycastHit barRayHitInfo;
-        if (inputController.leftMouse) {
-            if (Physics.Raycast(barRay, out barRayHitInfo)) {
-                Debug.Log("Clicking" + barRayHitInfo.transform.name);
-            }
-        }
+
 	}
 }
