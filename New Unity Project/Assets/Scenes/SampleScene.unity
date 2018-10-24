@@ -793,13 +793,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reqTouchToSwipe: 0
   swipeDeadZone: 80
+  invertUpDown: 1
   tap: 0
   swipeLeft: 0
   swipeRight: 0
   swipeUp: 0
   swipeDown: 0
-  startTouch: {x: 0, y: 0}
-  swipeDelta: {x: 0, y: 0}
 --- !u!1 &562273585
 GameObject:
   m_ObjectHideFlags: 0

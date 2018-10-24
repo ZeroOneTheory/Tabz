@@ -18,20 +18,15 @@ public class CameraController : MonoBehaviour {
         inputControl = GameManager.Instance.InputController;
         swipeViews = GetComponent<SwipeViews>();
     }
-
     void Update() {
         CycleViews();
         ChangeViews();
-
     }
-
-
-
     void LateUpdate() {
-        transform.position = Vector3.Lerp(transform.position, currentView.position, Time.deltaTime * transitionSpeed);
-        transform.rotation = Quaternion.Lerp(transform.rotation, currentView.rotation, Time.deltaTime * transitionSpeed);
-
+        PanCamera();
     }
+
+
 
     private void ChangeViews() {
         if (swipeViews.swipeDown == true) {
@@ -58,6 +53,11 @@ public class CameraController : MonoBehaviour {
                 viewNumber = 0;
             }
         }
+    }
+
+    private void PanCamera() {
+        transform.position = Vector3.Lerp(transform.position, currentView.position, Time.deltaTime * transitionSpeed);
+        transform.rotation = Quaternion.Lerp(transform.rotation, currentView.rotation, Time.deltaTime * transitionSpeed);
     }
 
     private void CycleViews() {

@@ -6,11 +6,12 @@ public class SwipeViews : MonoBehaviour {
 
     public int reqTouchToSwipe;
     public float swipeDeadZone;
+    public bool invertUpDown;
 
     [HideInInspector]
     public bool tap, swipeLeft, swipeRight, swipeUp, swipeDown;
     private bool isDragging = false;
-    private Vector2 startTouch, swipeDelta;
+    public Vector2 startTouch, swipeDelta;
 
 
     private void Update() {
@@ -39,6 +40,8 @@ public class SwipeViews : MonoBehaviour {
 
             float x = swipeDelta.x;
             float y = swipeDelta.y;
+
+            if (invertUpDown) { y = y * -1; }
 
             if( Mathf.Abs(x) > Mathf.Abs(y)) {
                 //Left or Right
