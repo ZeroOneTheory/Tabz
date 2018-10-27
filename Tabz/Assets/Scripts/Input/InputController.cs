@@ -8,10 +8,11 @@ public class InputController : MonoBehaviour {
     public float horizontal;
     public float scrollZoom;
     public bool leftMouse;
-    public Vector2 mouseInput;
-    public Vector2 inputDir;
     public bool IncViewKey;
     public bool DecViewKey;
+    public Vector2 mouseInput;
+    public Vector2 inputDir;
+
 
     private void Update() {
         vertical = Input.GetAxisRaw("Vertical");
@@ -21,10 +22,5 @@ public class InputController : MonoBehaviour {
         IncViewKey = Input.GetKeyDown(KeyCode.Z);
         DecViewKey = Input.GetKeyDown(KeyCode.X);
 
-        if (Input.touchCount >= 1) {
-            foreach (Touch touch in Input.touches) {
-                
-            }
-        }
     }
 }

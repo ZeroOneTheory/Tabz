@@ -2,16 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bartender : MonoBehaviour {
+public class Gripable : Interactives {
 
 	// Use this for initialization
 	void Start () {
-        
-
-    }
+		
+	}
 	
 	// Update is called once per frame
 	void Update () {
-
+		
 	}
 }

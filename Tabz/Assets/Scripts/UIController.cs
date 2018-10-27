@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraPositions : ScriptableObject {
+public class UIController : MonoBehaviour {
 
     
 }

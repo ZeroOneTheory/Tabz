@@ -760,10 +760,10 @@ MonoBehaviour:
   - {fileID: 1551469822}
   - {fileID: 1840326003}
   - {fileID: 2086600970}
-  transitionSpeed: 5
-  cameraZoom: 0
   currentView: {fileID: 1448666954}
   viewNumber: 0
+  transitionSpeed: 5
+  cameraZoom: 0
 --- !u!114 &534669907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -775,10 +775,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d00c93e7dc7b54ba559ae9d28cd2d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  touchDelay: 1
   touchInputMask:
     serializedVersion: 2
-    m_Bits: 4096
-  touchDelay: 1
+    m_Bits: 2048
   touchList: []
 --- !u!114 &534669908
 MonoBehaviour:
@@ -792,13 +792,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reqTouchToSwipe: 0
-  swipeDeadZone: 80
+  swipeDeadZone: 50
   invertUpDown: 1
   tap: 0
   swipeLeft: 0
   swipeRight: 0
   swipeUp: 0
   swipeDown: 0
+  startTouch: {x: 0, y: 0}
+  swipeDelta: {x: 0, y: 0}
 --- !u!1 &562273585
 GameObject:
   m_ObjectHideFlags: 0

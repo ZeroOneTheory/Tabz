@@ -5,10 +5,11 @@ using UnityEngine;
 public class CameraController : MonoBehaviour {
 
     public Transform[] barViews;
-    public float transitionSpeed;
-    public float cameraZoom;
     public Transform currentView;
     public int viewNumber = 0;
+    public float transitionSpeed;
+    public float cameraZoom;
+
 
     InputController inputControl;
     SwipeViews swipeViews;

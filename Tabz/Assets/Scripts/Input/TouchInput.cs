@@ -4,22 +4,31 @@ using UnityEngine;
 
 public class TouchInput : MonoBehaviour {
 
-    public LayerMask touchInputMask;
     public float touchDelay;
+    public LayerMask touchInputMask;
 
     private float nextTouchAllowed;
     private RaycastHit hit;
-    [SerializeField] List<GameObject> touchList = new List<GameObject>();
     private GameObject[] touchesOld;
 
+    [SerializeField]
+    List<GameObject> touchList = new List<GameObject>();
     Camera cam;
+
 
     public void Start() {
         cam = GetComponent<Camera>();
     }
 
     void Update() {
+        SendTouchMessages();
 
+    }
+
+
+
+
+    private void SendTouchMessages() {
         if (Input.touchCount > 0) {
 
             touchesOld = new GameObject[touchList.Count];
@@ -28,7 +37,7 @@ public class TouchInput : MonoBehaviour {
 
             foreach (Touch touch in Input.touches) {
                 Ray ray = cam.ScreenPointToRay(touch.position);
-                
+
 
                 if (Physics.Raycast(ray, out hit, touchInputMask)) {
                     GameObject recipient = hit.transform.gameObject;
@@ -36,7 +45,6 @@ public class TouchInput : MonoBehaviour {
 
                     if (touch.phase == TouchPhase.Began) {
                         recipient.SendMessage("OnTouchDown", hit.transform, SendMessageOptions.DontRequireReceiver);
-
                     }
                     if (touch.phase == TouchPhase.Ended) {
                         recipient.SendMessage("OnTouchUp", hit.transform, SendMessageOptions.DontRequireReceiver);
@@ -62,7 +70,5 @@ public class TouchInput : MonoBehaviour {
             }
 
         }
-
-
     }
 }
