@@ -6,6 +6,7 @@ public class CameraController : MonoBehaviour {
 
     public Transform[] barViews;
     public Transform currentView;
+    public CameraView[] cameraViews;
     public int viewNumber = 0;
     public float transitionSpeed;
     public float cameraZoom;
@@ -26,7 +27,6 @@ public class CameraController : MonoBehaviour {
     void LateUpdate() {
         PanCamera();
     }
-
 
 
     private void ChangeViews() {
@@ -79,5 +79,20 @@ public class CameraController : MonoBehaviour {
         }
         currentView = barViews[viewNumber];
     }
+
+    public void SetViewWell() {
+        viewNumber = 1;
+    }
+
+
+    // --------------- Classes -------------------------------
+    public class CameraView {
+        public enum BarViews { crowd, well, tap, topShelf, rail }
+        public BarViews barView;
+        public Transform camFocus;
+
+    }
+
+
 
 }

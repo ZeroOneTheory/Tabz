@@ -69,4 +69,5 @@ public class SwipeViews : MonoBehaviour {
         isDragging = false;
     }
 
+
 }

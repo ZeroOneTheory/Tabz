@@ -10,6 +10,7 @@ public class InputController : MonoBehaviour {
     public bool leftMouse;
     public bool IncViewKey;
     public bool DecViewKey;
+    public bool spaceKey;
     public Vector2 mouseInput;
     public Vector2 inputDir;
 
@@ -21,6 +22,7 @@ public class InputController : MonoBehaviour {
         leftMouse = Input.GetMouseButtonDown(0);
         IncViewKey = Input.GetKeyDown(KeyCode.Z);
         DecViewKey = Input.GetKeyDown(KeyCode.X);
+        spaceKey = Input.GetKeyUp(KeyCode.Space);
 
     }
 }
