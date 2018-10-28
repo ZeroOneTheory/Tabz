@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5939ec69f402f94ba4c39cac389fcfa, type: 3}
   m_Name: Vodka Soda
   m_EditorClassIdentifier: 
-  drinkName: 
-  glassType: 0
+  drinkName: Vodak Soda
+  glassType: 2

@@ -5,8 +5,6 @@ using UnityEngine;
 public class DrinkBuild : MonoBehaviour {
 
     public Drink order;
-    public GameObject glassPrefab;
-    GameObject glassPrefabClone;
 
     // Use this for initialization
     void Start () {

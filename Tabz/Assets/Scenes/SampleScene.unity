@@ -713,6 +713,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06aced0481462a54397aa07418fa7769, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuItems:
+  - itemName: Vodka Soda
+    prefabParent: {fileID: 1941821469289586, guid: 75302fe3e3f3a004c846a3919ffb6fda,
+      type: 2}
 --- !u!4 &928674341
 Transform:
   m_ObjectHideFlags: 0
