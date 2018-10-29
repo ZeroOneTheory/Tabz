@@ -6,13 +6,4 @@ public class DrinkBuild : MonoBehaviour {
 
     public Drink order;
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

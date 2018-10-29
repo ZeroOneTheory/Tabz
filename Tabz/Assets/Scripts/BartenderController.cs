@@ -8,9 +8,10 @@ public class BartenderController : MonoBehaviour {
     public Dictionary<string, GameObject> DrinkMenu = new Dictionary<string, GameObject>();
     public MenuItem[] menuItems;
     public string requestOrderKey;
-    public int tempStringRequest;
+    public int tempStringRequest; // temp variable for reciving drink order strings
 
     private void Start() {
+        // Copy Menu items to Drink Menu dictionary
         for(int x=0; x<menuItems.Length; x++) {
             DrinkMenu.Add(menuItems[x].itemName, menuItems[x].prefabParent);
         }
@@ -22,6 +23,7 @@ public class BartenderController : MonoBehaviour {
 
     public void AcceptNewOrder() {
 
+        // Used for testing Only, increments the NextOrder temp Var and grabs the orderstring associated to the index.
         string orderString;
         NextOrder();
         orderString = menuItems[tempStringRequest].itemName;
@@ -40,10 +42,12 @@ public class BartenderController : MonoBehaviour {
                         Debug.Log("Accepting new order of:" + requestOrderKey);
                     }
                 }
+                // if The item is not found on the menu
                 else { Debug.Log("Item Not On Menu!"); }
             }
         }
 
+    // Temporary function for incrementing menu item selection
     public void NextOrder() {
         if (tempStringRequest == menuItems.Length-1) {
             tempStringRequest = 0;
@@ -54,7 +58,7 @@ public class BartenderController : MonoBehaviour {
 
 
 
-
+    // Menu items struct, contains the menu items name and the prefab
     [Serializable]
     public struct MenuItem {
         public string itemName;

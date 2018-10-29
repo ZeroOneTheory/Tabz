@@ -7,16 +7,17 @@ public class DrinkOrders : MonoBehaviour {
 
     public bool onRail = false;
     public int railPosition;
-    public DrinkBuild orderRequested;
+    public DrinkBuild orderRequested; // The Drink being built by the player
+    public Drink ticket; // Copy of the original order
 
 
 	// Use this for initialization
 	void Start () {
         orderRequested = GetComponent<DrinkBuild>();
+        ticket = orderRequested.order;
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    //Meth: Compare order to ticket
+    //Meth: Pass out Drink
 }

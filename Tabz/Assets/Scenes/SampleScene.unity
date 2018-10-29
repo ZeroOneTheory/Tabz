@@ -1370,6 +1370,15 @@ MonoBehaviour:
   - itemName: Martini
     prefabParent: {fileID: 1941821469289586, guid: a76714b3137f0e441b17e7f954e5d7cd,
       type: 2}
+  - itemName: Pilsner
+    prefabParent: {fileID: 1941821469289586, guid: a453ed8c6065e4f4f8293f7533e9c6c1,
+      type: 2}
+  - itemName: Merlot
+    prefabParent: {fileID: 1941821469289586, guid: d3aa6179c3069e9408277571df22bed8,
+      type: 2}
+  - itemName: Tequila Shot
+    prefabParent: {fileID: 1941821469289586, guid: 88d1784c3235c944b9ce332dd6f162e8,
+      type: 2}
   requestOrderKey: 
   tempStringRequest: 0
 --- !u!4 &928674341

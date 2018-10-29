@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 [CreateAssetMenu(fileName = "New Drink",menuName ="Bar/Drinks")]
 public class Drink : ScriptableObject {
 
@@ -9,8 +10,7 @@ public class Drink : ScriptableObject {
     public enum GlassTypes { rocks,shot,highball,Martini,Wine,Sniffter,Hurricane,Pint};
     public GlassTypes glassType;
 
-    public Drink(string name) {
-        drinkName = name;
-    }
+    // Meth: Calculate Abv
+    // Meth: Calculate total Volume
 
 }
