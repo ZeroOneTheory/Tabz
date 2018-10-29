@@ -6,7 +6,7 @@ using UnityEngine;
 public class Drink : ScriptableObject {
 
     public string drinkName;
-    public enum GlassTypes { rocks,shot,highball};
+    public enum GlassTypes { rocks,shot,highball,Martini,Wine,Sniffter,Hurricane,Pint};
     public GlassTypes glassType;
 
     public Drink(string name) {

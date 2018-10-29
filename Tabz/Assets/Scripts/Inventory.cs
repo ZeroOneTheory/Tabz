@@ -7,30 +7,38 @@ public class Inventory : MonoBehaviour {
     #region Singleton
     public static Inventory instance;
     private void Awake() {
-        if(instance != null) { Debug.LogWarning("More than 1 inventory found!"); }
+        if (instance != null) { Debug.LogWarning("More than 1 inventory found!"); }
         instance = this;
     }
     #endregion
 
+    public delegate void OnRailChanged();
+    public OnRailChanged railChangedCallback;
+
     public int railLength;
+    public bool isRailFull=false;
     public Transform[] railPositions;
-    public List<DrinkOrders> theRail = new List<DrinkOrders>();
+    public List<GameObject> theRail = new List<GameObject>();
 
     private void Start() {
         railLength = railPositions.Length;
+        railChangedCallback += AddToRail;
     }
 
     public void Update() {
-        
+        if(theRail.Count < railPositions.Length) { isRailFull = false; } else { isRailFull = true; }
     }
 
 
-    public bool NewDrinkOrder(DrinkOrders newOrder) {
+    public bool NewDrinkOrder(GameObject newOrder) {
         if (theRail.Count < railLength) {
             theRail.Add(newOrder);
-            newOrder.onRail = true;
-            newOrder.railPosition = theRail.IndexOf(newOrder);
-            Debug.Log(newOrder.order.drinkName + " " + newOrder.railPosition);
+            DrinkOrders ticket = newOrder.GetComponent<DrinkOrders>();
+            ticket.onRail = true;
+            ticket.railPosition = theRail.IndexOf(newOrder);
+            if(railChangedCallback != null) {
+                railChangedCallback.Invoke();
+            }
             return true;
         } else {
             Debug.Log("Rail Full");
@@ -40,8 +48,11 @@ public class Inventory : MonoBehaviour {
     }
 
     public void AddToRail() {
-        // Check for Drinks that are on list but not on rail
-        // for every drink added to the rail list, that isn't already on the rail, add to phyiscal position. 
+        for (int i = 0; i < theRail.Count; i++) {
+            if (i > railPositions.Length) { break; }
+            theRail[i].transform.position = railPositions[i].position;
+            
+        }
     }
 
 
